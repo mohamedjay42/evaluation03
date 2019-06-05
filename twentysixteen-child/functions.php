@@ -52,3 +52,4 @@ function rest_get_date_evenement( $object, $field_name, $request ) {
     return(get_post_meta($object['id'], 'date-evenement', true));
 }
 add_action( 'rest_api_init', 'rest_add_date_evenement' );
+

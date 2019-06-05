@@ -2,44 +2,62 @@ Evaluation 03 - Développement Plugin wordpress
 
 1- Pourquoi paramétrer un utilisateur evaluation03 pour accéder à la base de donnée
 au lieu d'utiliser l'utilisateur 'root'?
-réponse:
+réponse:Pour la sécurité seul l'utilisateur peux accèder à la bdd.
 
 2- Pour améliorer la sécurité de la base de donnée quels autres paramétrages de l'utilisateur
 pouvez vous utiliser?
-réponse:
+réponse: Gérer les privilèges et changer les préfixes de tables de la bdd.
 
 3- Qu'est-ce qu'un virtualhost dans apache?
-réponse:
+réponse:Les virtualhosts ou hôtes virtuels permettent d'héberger plusieurs sites internet (nom de domaine) sur un même serveur dédié
 
 4- A quoi sert un thème enfant ? Quelle est son utilité quand on fait une mise à jour de wordpress ?
-réponse:
+réponse:Un thème enfant est un thème qui hérite des styles et des fonctionnalités d'un autre thème, appelé dans ce cas, le « thème parent ». ... 
+Cela permet de mettre à jour votre thème original (qui sert de moteur au thème enfant), sans perdre toutes les modifications que vous avez apporté à votre site.
 
 5- Que signifie i18n ? A quoi sert la fonction __( 'Hello world', 'my-text-domain' ); ?
-réponse:
+réponse:En développement de logiciel, l'internationalisation (abrégé en i18n, où 18 représente le nombre de caractères entre le i et le n dans le mot) 
+est la mise en place d'un système permettant la régionalisation du logiciel, c'est-à-dire son adaptation à des langues et des cultures différentes.
 
 6- Dans un thème à quoi sert le fichier 404.php ? page.php ?
-réponse:
+réponse:Ce premier cas est très simple. En cas d’erreur 404 (page non trouvée),
+ WordPress va chercher dans le thème un fichier nommé 404.php. 
+C’est un template qui n’est habituellement associé à aucun contenu de la base de données. 
+Le message affiché est dans ce cas écrit en dur dans le fichier. Sur certains thèmes complexes,
+ il est possible d’avoir un champ prévu pour le message d’erreur 404 dans le back-office, 
+que ce template récupèrera alors dans la base de données pour l’afficher dynamiquement.
+
+Si WordPress ne trouve pas de fichier 404.php, il utilisera le template par défaut index.php.
 
 7- Qu'est ce qu'un "custom post type" ?
-réponse:
+réponse:Un custom post type vous permet de créer un nouveau type de contenu sur mesure pour votre site. 
+Un type de contenu qui ne convient ni aux pages ni aux articles.
 
 8- Qu'est ce qu'un "custom field" ?
-réponse:
+réponse:un puissant outil gratuit et intuitif qui permet de rajouter des champs spéciaux et récurrents à vos posts WordPress. 
 
 12- Quelles sont les principales fonctions de l'API wordpress ?
-réponse:
+réponse:Elle  permet d’interagir avec le noyau de WordPress sans passer par son interface graphique.
+ Cela signifie un découplage du noyau et de l’interface graphique. Avec cette API, 
+vous pouvez par exemple créer un nouvel article, sans avoir à accéder au tableau de bord
 
 13- Est-ce que l'API wordpress permet de modifier le site web ? quid de la sécurité ?
 réponse:
 
 14- Qu'est ce que la wordpress loop ?
-réponse:
+réponse:Le code à travers laquelle WordPress va passer pour afficher chaque Post. 
+La boucle, ou son nom original « The Loop », est le noyau dur de WordPress. 
+Il s'agit d'une simple boucle PHP par laquelle WordPress va passer pour afficher chaque Post.
 
 15- Quelles sont les fonctions principales du plugin reservation-evenements ?
-réponse:
+réponse: afficher le formulaire, reservation, ajouter du champ custom à l'api (ajouter et lire les réservatin)
 
 16- A quoi sert la fonction wp_nonce_field() ?
-réponse:
+réponse:Récupère ou affiche le champ de formulaire masqué.
+
+Le champ nonce est utilisé pour valider que le contenu de la demande de formulaire provient du site actuel et pas ailleurs.
+Un nonce n'offre pas de protection absolue, mais devrait protéger contre la plupart des cas. 
+Il est très important d'utiliser des champs nonce dans les formulaires.
 
 17- Comment sont stockées les réservations ?
-réponse:
+réponse: dans get_post_meta() dans la bdd de wp.
