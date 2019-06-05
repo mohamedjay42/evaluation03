@@ -1,0 +1,45 @@
+Evaluation 03 - Développement Plugin wordpress
+
+1- Pourquoi paramétrer un utilisateur evaluation03 pour accéder à la base de donnée
+au lieu d'utiliser l'utilisateur 'root'?
+réponse:
+
+2- Pour améliorer la sécurité de la base de donnée quels autres paramétrages de l'utilisateur
+pouvez vous utiliser?
+réponse:
+
+3- Qu'est-ce qu'un virtualhost dans apache?
+réponse:
+
+4- A quoi sert un thème enfant ? Quelle est son utilité quand on fait une mise à jour de wordpress ?
+réponse:
+
+5- Que signifie i18n ? A quoi sert la fonction __( 'Hello world', 'my-text-domain' ); ?
+réponse:
+
+6- Dans un thème à quoi sert le fichier 404.php ? page.php ?
+réponse:
+
+7- Qu'est ce qu'un "custom post type" ?
+réponse:
+
+8- Qu'est ce qu'un "custom field" ?
+réponse:
+
+12- Quelles sont les principales fonctions de l'API wordpress ?
+réponse:
+
+13- Est-ce que l'API wordpress permet de modifier le site web ? quid de la sécurité ?
+réponse:
+
+14- Qu'est ce que la wordpress loop ?
+réponse:
+
+15- Quelles sont les fonctions principales du plugin reservation-evenements ?
+réponse:
+
+16- A quoi sert la fonction wp_nonce_field() ?
+réponse:
+
+17- Comment sont stockées les réservations ?
+réponse:
