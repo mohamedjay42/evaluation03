@@ -42,7 +42,7 @@ réponse:Elle  permet d’interagir avec le noyau de WordPress sans passer par s
 vous pouvez par exemple créer un nouvel article, sans avoir à accéder au tableau de bord
 
 13- Est-ce que l'API wordpress permet de modifier le site web ? quid de la sécurité ?
-réponse:
+réponse: ouon peut le modifier, niveau sécurité les informations sont publiques donc accessible
 
 14- Qu'est ce que la wordpress loop ?
 réponse:Le code à travers laquelle WordPress va passer pour afficher chaque Post. 
