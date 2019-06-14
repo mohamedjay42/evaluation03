@@ -8,32 +8,50 @@ defined( 'ABSPATH' ) or die( 'No direct access' );
 define('RESERVATION_TEMPLATE', '
 <form action="%s" method="POST">
 	%s
-	<input type="hidden" name="id-evenement" value="%s" />
+    <input type="hidden" name="id-evenement" value="%s" />
+    <input type="hidden" name="action" value="%s" />
 	<p>
-		<input id="submit" type="submit" name="reservation" class="submit" value="Reserver" />
+		<input id="submit" type="submit" name="reservation" class="submit" value="%s" />
 	</p>
 </form>
 ');
 
 // Action pour traiter le formulaire de reservation
-add_action('template_redirect', 'reservation_evenements_reserver');
+add_action('template_redirect', 'reservation_evenements_traitement');
 
 // Recuperation du code HTML du formaulaire de reservation
 function reservation_evenements_getform( $postId ) {
-
+    var_dump($postId);
     if (is_user_logged_in()) {
+        $user = wp_get_current_user();
+        $sEmail = $user->user_email;
+        
+            
+        $aListeReservation = json_decode(get_post_meta($postId, 'reservations-evenement', true), true);
+        
+        if (in_array($sEmail, $aListeReservation)) {
+            $sAction = 'annuler';
+            $sDescBouton = 'Annuler réservation';
+        } else {
+            $sAction = 'reserver';
+            $sDescBouton = 'Réserver';
+        }
+
         printf(RESERVATION_TEMPLATE,
                     get_site_url() . '/evenements/',
                     wp_nonce_field('reserver', 'reservation-verif'),
-                    $postId);
+                    $postId,
+                    $sAction,
+                    $sDescBouton);
     } else {
         echo "<p>Connectez-vous pour pouvoir réserver</p>";
     }
+    var_dump($aListeReservation);
 
 }
 
 // Traitement des reservations
-function reservation_evenements_reserver() {
+function reservation_evenements_traitement() {
 
     if (isset($_POST['id-evenement']) && isset($_POST['reservation-verif']))  {
 
@@ -44,11 +62,23 @@ function reservation_evenements_reserver() {
             $sEmail = $user->user_email;
 
             $aListeReservation = json_decode(get_post_meta($_POST['id-evenement'], 'reservations-evenement', true), true);
+            
             if ($aListeReservation===null) {
                 $aListeReservation = [$sEmail];
-            } else {
-                if (!in_array($sEmail, $aListeReservation)) {
+            } else 
+            {
+                if (!in_array($sEmail, $aListeReservation)) 
+                {
                     array_push($aListeReservation, $sEmail);
+                } else 
+                {
+                    foreach ($aListeReservation as $key => $value)
+                    {
+                        if($sEmail==$value)
+                        {
+                            unset($aListeReservation[$key]);
+                        }
+                    }
                 }
             }
 
